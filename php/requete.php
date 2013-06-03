@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Exemple requête GET</title>
+<!--        <link rel="stylesheet" href="css/test.css"/>-->
+        
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="../php/du_php.php">Php en ligne</a></li>
+                <li><a href="../php/exemple_classe.php">Exemple classe</a></li>
+                <li><a href="../php/exemple_get.php">Exemple get</a></li>
+                <li><a href="../php/exemple_post.php">Exemple post</a></li>
+                <li><a href="../php/requete.php">Requete</a></li>
+            </ul>
+        </nav>
+        
+        <?php
+            $utilisateurs = array('Facita' => 'Jules Durand',
+                                  'Poras' => 'Patrice Rasci',
+                                  'Magnus' => 'Magalie Nuseo');
+            if (isset($_GET['pseudo'])) {
+              $pseudo = $_GET['pseudo'];
+              if (isset($utilisateurs[$pseudo])) {
+                echo "<h1>Bonjour ".$utilisateurs[$pseudo]."</h1>";
+              } else {
+                header('HTTP/1.0 404 Not Found');
+                echo "<h1>404 Not Found</h1>";
+                echo "The page that you have requested could not be found.";
+                exit();                  
+              }              
+            } else {            
+              echo '<a href="../php/requete.php?pseudo=Poras">Lien avec paramètre</a>';
+            }
+        ?>
+    </body>
+</html>
