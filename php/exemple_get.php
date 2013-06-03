@@ -10,7 +10,7 @@
     <body>
         <nav>
             <ul>
-                <li><a href="/">Accueil</a></li>
+                <li><a href="../">Accueil</a></li>
                 <li><a href="../php/du_php.php">Php en ligne</a></li>
                 <li><a href="../php/exemple_classe.php">Exemple classe</a></li>
                 <li><a href="../php/exemple_get.php">Exemple get</a></li>
