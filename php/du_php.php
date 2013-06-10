@@ -3,7 +3,10 @@
     <head>
         <meta charset="utf-8" />
         <title>Titre</title>
-        <link rel="stylesheet" href="css/test.css"/>
+        <!-- la feuille de style est précédée d'un .. pour indiquer qu'il faut aller au dossier parent par rapport au fichier présent
+            le chemin "/cours2/css/style.css" était également valable  
+        -->
+        <link rel="stylesheet" href="../css/style.css"/>
         
     </head>
 
