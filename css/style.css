@@ -10,4 +10,4 @@
 p {color: green;}
 
 /* tous les liens comportant la classe important seront rouges, en gras*/
-a.important {font-weight: bold;}
+a.important {font-weight: bold;color: red;}
