@@ -22,6 +22,7 @@
             </ul>
         </nav>        
         <h1 id="titre">Mon site dynamique</h1>
+        <p>Un <a href="demo/exemple_chemin.php">lien vers une page</a> qui démontre l'usage des .. dans le chemin des feuilles de style</p>
         <?php
             $date_jour = new DateTime();
             echo "<h2> Il est ".$date_jour->format('d/m/Y h:i')."</h2>";
