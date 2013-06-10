@@ -6,3 +6,8 @@
         Purpose of the stylesheet follows.
 */
 
+/* si l'on veut que tous les paragraphes soient verts*/
+p {color: green;}
+
+/* tous les liens comportant la classe important seront rouges, en gras*/
+a.important {font-weight: bold;}
