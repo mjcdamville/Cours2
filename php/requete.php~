@@ -28,6 +28,7 @@
                                   
             $utilisateurs = json_decode(file_get_contents('list.json'),true);
             
+            print_r($utilisateurs);die;
                                   
             if (isset($_GET['pseudo'])) {
               $pseudo = $_GET['pseudo'];

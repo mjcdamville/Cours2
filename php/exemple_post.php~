@@ -22,10 +22,8 @@
         <?php
             if (isset($_POST['nom'])) {
               $utilisateurs = json_decode(file_get_contents('list.json'),true);
-              $utilisateurs[$_POST['pseudo']] = $_POST['nom'].' '.$_POST['prenom'];
-              file_put_contents('list.json',json_encode($utilisateurs));
-              echo $_POST['nom'].' '.$_POST['prenom'].' sauvegardé.<br />';              
-              echo '<a href="list.json">Fichier json</a>'; 
+              
+              echo $_POST['nom'].' '.$_POST['prenom'].' sauvegardé.';
             } else {
               echo '<form action="../php/exemple_post.php" method="POST">';
               echo '<label for="nom">Votre nom</label>';
