@@ -30,7 +30,7 @@
         
             if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['pseudo'])) {
             
-              if ( strlen($_POST['nom'])>0 && strlen($_POST['prenom']>0) && strlen($_POST['pseudo'])>0) {  // toutes les données sont requises
+              if ( strlen($_POST['nom'])>0 && strlen($_POST['prenom'])>0 && strlen($_POST['pseudo'])>0) {  // toutes les données sont requises
                     
                     $utilisateurs[$_POST['pseudo']] = $_POST['nom'].' '.$_POST['prenom'];
                     

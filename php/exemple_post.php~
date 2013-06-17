@@ -62,7 +62,7 @@
               {
                     echo '<li><strong>'.$pseudo.'</strong> '.$utilisateur.'</li>';
               }
-              echo '<\ul>';
+              echo '</ul>';
               
             }
         ?>
