@@ -16,11 +16,10 @@
                 <li><a href="../php/exemple_get.php">Exemple get</a></li>
                 <li><a href="../php/exemple_post.php">Exemple post</a></li>
                 <li><a href="../php/requete.php">Requete</a></li>
-                <li><a href="../php/supprime.php">Supprime</a></li>                
+                <li><a href="../php/supprime.php">Supprime</a></li>
             </ul>
         </nav>
-        
-        <?php
+<?php
         
            // on lit le fichier json list.json avec file_get_contents et on le convertit en tableau associatif avec json_decode
            // http://fr2.php.net/manual/fr/function.json-decode.php   
@@ -29,18 +28,22 @@
            
            $utilisateurs = json_decode(file_get_contents('list.json'),true);
         
-            if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['pseudo'])) {
+            if (isset($_POST['pseudo'])) {
             
-              if ( strlen($_POST['nom'])>0 && strlen($_POST['prenom'])>0 && strlen($_POST['pseudo'])>0) {  // toutes les données sont requises
+              if ( strlen($_POST['pseudo'])>0) {  // Il faut que pseudo ait été saisi
                     
-                    $utilisateurs[$_POST['pseudo']] = $_POST['nom'].' '.$_POST['prenom'];
-                    
-                    // sauvegarde des données
-                    file_put_contents('list.json',json_encode($utilisateurs));
-                    
-                    // affichage message succès
-                    echo $_POST['nom'].' '.$_POST['prenom'].' sauvegardé.<br />';              
-                    echo '<a href="list.json">Fichier json</a>';   
+                    if (isset($utilisateurs[$_POST['pseudo']])) {
+                        // sauvegarde des données
+                        unset($utilisateurs[$_POST['pseudo']]);
+                        file_put_contents('list.json',json_encode($utilisateurs));     
+                        
+                        // affichage message succès
+                        echo $_POST['pseudo'].' supprimé.<br />';              
+                        echo '<a href="list.json">Fichier json</a>';                           
+                        
+                    } else {
+                        echo "L'utilisateur ".$_POST['pseudo']." n'existe pas";
+                    }                                       
                     
               } else {   // au moins une des données n'a pas été saisie
                          // afficher le message d'erreur
@@ -48,14 +51,10 @@
                     echo '<a href="../php/exemple_post.php">Retour</a>';
               }
             } else {
-              echo '<form action="../php/exemple_post.php" method="POST">';
-                echo '<label for="nom">Votre nom</label>';
-                echo '<input name="nom" type="text" />';
-                echo '<label for="nom">Votre prénom</label>';
-                echo '<input name="prenom" type="text" />';
+              echo '<form action="../php/supprime.php" method="POST">';
                 echo '<label for="pseudo">Votre pseudo</label>';
-                echo '<input name="pseudo" type="text" />';               
-                echo '<input type="submit" value="valider" />';
+                echo '<input name="pseudo" type="text" />';
+                echo '<input type="submit" value="Supprimer" />';
               echo '</form>';
               
               echo '<ul>';
@@ -67,5 +66,3 @@
               
             }
         ?>
-    </body>
-</html>
